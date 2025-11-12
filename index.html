@@ -1,44 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>News</title>
+    <title>Quiz Game</title>
     <link rel="stylesheet" href="src/styles/style.css">
-    <link rel="icon" href="src/3d0a1942ea617825e187c3c9a3811a5d93a331be-370x366.webp" type="image/x-icon">
 </head>
 <body>
-    <main class="container quiz">
-        <h1>🎯 Викторина по веб-разработке</h1>
+<main class="container">
+    <h1>🎯 Викторина</h1>
+    <p class="lead">Выберите категорию, чтобы начать игру</p>
 
-        <div class="hud">
-            <div class="progress">
-                <div id="bar" class="bar"></div>
-            </div>
-            <div class="stats">
-                Очки: <span id="score">0</span> ·
-                Рекорд: <span id="best">0</span> ·
-                Таймер: <span id="timer">20</span>s
-            </div>
-        </div>
-
-        <section id="screen-question" class="screen">
-            <div class="question-number" id="questionNum"></div>
-            <h2 id="qText"></h2>
-            <div id="choices" class="choices"></div>
-            <button id="next" class="btn" disabled>Дальше →</button>
-        </section>
-
-        <section id="screen-result" class="screen hidden">
-            <h2>🎉 Результат</h2>
-            <div class="emoji" id="resultEmoji">🎉</div>
-            <div class="result-stats">
-                <div>Ваш результат: <strong id="final" style="color: var(--accent); font-size: 1.5rem;">0</strong> из <span id="total">5</span></div>
-                <div>Лучший результат: <strong id="bestResult" style="color: var(--ok);">0</strong></div>
-            </div>
-            <button id="again" class="btn">🔄 Играть ещё</button>
-        </section>
-    </main>
-
-    <script src="src/js/main.js"></script>
+    <div class="category-list">
+        <a class="btn" href="dnd.html">⚔️ DnD</a>
+        <a class="btn" href="web-programming.html">💻 Web Programming</a>
+        <a class="btn" href="games.html">🎮 Games</a>
+        <a class="btn" href="cinema.html">🎬 Cinema</a>
+    </div>
+</main>
 </body>
 </html>

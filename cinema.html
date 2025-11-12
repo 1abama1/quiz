@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Game · Cinema</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+</head>
+<body data-category="Cinema">
+<main class="container quiz">
+    <h1>🎯 Викторина · Cinema</h1>
+
+    <section id="screen-category" class="screen">
+        <h2>Загружаем вопросы...</h2>
+        <p class="lead">Подождите пару секунд — мы готовим вашу игру.</p>
+    </section>
+
+    <section id="screen-question" class="screen hidden">
+        <div class="hud">
+            <div class="progress"><div id="bar" class="bar"></div></div>
+            <div class="stats">Очки: <span id="score">0</span> · Рекорд: <span id="best">0</span> · Таймер: <span id="timer">20</span>s</div>
+        </div>
+
+        <div class="question-number" id="questionNum"></div>
+        <h2 id="qText"></h2>
+        <div id="choices" class="choices"></div>
+        <button id="next" class="btn" disabled>Дальше →</button>
+    </section>
+
+    <section id="screen-result" class="screen hidden">
+        <h2>🎉 Результат</h2>
+        <div class="emoji" id="resultEmoji">🎉</div>
+        <div class="result-stats">
+            <div>Ваш результат: <strong id="final" style="color: var(--accent); font-size: 1.5rem;">0</strong> из <span id="total">5</span></div>
+            <div>Лучший результат: <strong id="bestResult" style="color: var(--ok);">0</strong></div>
+        </div>
+        <button id="again" class="btn">🔄 Играть ещё</button>
+        <button id="backToMenu" class="btn">⬅️ Назад к категориям</button>
+    </section>
+</main>
+
+<script src="src/js/main.js"></script>
+</body>
+</html>
+
