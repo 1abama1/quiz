@@ -23,7 +23,6 @@ const $resultEmoji = document.getElementById('resultEmoji');
 const $again = document.getElementById('again');
 const $backToMenu = document.getElementById('backToMenu');
 
-// ✅ Загрузка вопросов с mockAPI (под right_answer_id)
 async function loadQuestions(category) {
     const res = await fetch(API_URL);
     if (!res.ok) throw new Error(`Ошибка загрузки вопросов: ${res.status}`);
@@ -33,19 +32,17 @@ async function loadQuestions(category) {
     if (!filtered.length) throw new Error("Нет вопросов для этой категории!");
 
     QUESTIONS = filtered.map((r, idx) => {
-        // Преобразуем ответы в массив
         let answersArr = Array.isArray(r.answers)
             ? r.answers.map(a => String(a).trim())
             : String(r.answers ?? '').split(',').map(a => a.trim()).filter(Boolean);
 
-        // Определяем правильный индекс
         let correctIndex = 0;
         if (typeof r.right_answer_id === 'number') {
             correctIndex = r.right_answer_id;
         } else if (typeof r.right_answer_id === 'string' && /^\d+$/.test(r.right_answer_id)) {
             correctIndex = parseInt(r.right_answer_id, 10);
         } else {
-            correctIndex = 0; // fallback
+            correctIndex = 0; 
         }
 
         if (correctIndex < 0 || correctIndex >= answersArr.length) {
@@ -62,7 +59,6 @@ async function loadQuestions(category) {
     $total.textContent = QUESTIONS.length;
 }
 
-// ✅ Работа с рекордом
 function loadBest() {
     best = parseInt(localStorage.getItem(STORAGE_KEY) || '0');
     $best.textContent = best;
@@ -76,7 +72,6 @@ function saveBest(newBest) {
     $bestResult.textContent = best;
 }
 
-// ✅ Основная логика игры
 function start() {
     idx = 0;
     score = 0;
@@ -170,7 +165,6 @@ $backToMenu.addEventListener('click', () => {
     $catScreen.classList.remove('hidden');
 });
 
-// ✅ Показ результата
 function showResult() {
     $screenQ.classList.add('hidden');
     $screenR.classList.remove('hidden');
@@ -186,7 +180,6 @@ function showResult() {
     else $resultEmoji.textContent = '💪';
 }
 
-// ✅ Обработка выбора категории и прямых ссылок
 async function startCategory(category) {
     if (!category) return;
 
